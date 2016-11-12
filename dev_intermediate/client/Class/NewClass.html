@@ -1,0 +1,10 @@
+<template name="NewClass">
+  <div class="new-class-container">
+  {{> quickForm collection="Classroom" id="insertClassroomForm" type="insert" class="new-classroom-form"}}
+  </div>
+  <div class="class-list">
+    {{#each classroom}}
+      <li>{{title}}<br /> {{desc}}</li>
+    {{/each}}
+  </div>
+</template>

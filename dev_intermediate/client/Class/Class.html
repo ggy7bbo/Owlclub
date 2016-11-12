@@ -1,0 +1,13 @@
+<template name="Class">
+  <article class="class_list">
+    {{#each classroom}}
+      <div class="classwrap">
+        <div class="class_title"> {{title}} </div>
+        <div class="class_desc">미팅시간: {{desc}}</div>
+        <div class="class_count">{{#each showClass}}{{subject}}{{/each}}현재참여 인원: ({{showUserCount.count}} / 20)</div>
+        <a href="/class/{{_id}}">View Details</a>
+        <button class="btn-primary toggle-menu">Club 참여</button>
+      </div>
+    {{/each}}
+  </article>
+</template>
