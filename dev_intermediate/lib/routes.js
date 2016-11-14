@@ -1,6 +1,6 @@
 if (Meteor.isClient){ //Client일 때만 로그인, 로그아웃 후 리다이렉팅 설정
   Accounts.onLogin(function() {
-    FlowRouter.go('recipe-book');
+    FlowRouter.go('class');
   });
 
   Accounts.onLogout(function() {
@@ -18,7 +18,7 @@ FlowRouter.route('/', {
   name: 'home',
   action(){
     if(Meteor.userId()){
-      FlowRouter.go('recipe-book'); //name으로 구분
+      FlowRouter.go('class'); //name으로 구분
     }
     // GAnalytics.pageview();
     BlazeLayout.render('HomeLayout');
@@ -90,20 +90,12 @@ FlowRouter.route('/myclassroom', {
   }
 });
 
-if (Meteor.isServer) {
-  WebApp.connectHandlers.use("/", function(req, res, next) {
-    var isValidRoute = false;
-    for(var i=0; i<FlowRouter._routes.length; i++){
-      if (req.url == FlowRouter._routes[i].path) {
-        isValidRoute = true;
-        break;
-      }
+FlowRouter.notFound = {
+    // Subscriptions registered here don't have Fast Render support.
+    subscriptions: function() {
+
+    },
+    action: function() {
+      BlazeLayout.render('MainLayout', {main: 'NotFound'});
     }
-    if(isValidRoute) {
-      next();
-    } else {
-      res.writeHead(404);
-      res.end("Not Found");
-    }
-  });
-}
+};
