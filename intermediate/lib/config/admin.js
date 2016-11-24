@@ -4,7 +4,8 @@ AdminConfig = {
   collections: {
     Classroom: {},
     Materials: {},
-    Recipes:{}
+    Question:{},
+    Round:{}
   },
   dashboard: {
     homeUrl: '/dashboard',
@@ -27,7 +28,14 @@ AdminConfig = {
       {
         template: 'adminCollectionWidget',
         data: {
-          collection: 'Recipes',
+          collection: 'Question',
+          class: 'col-lg-3 col-xs-6'
+        }
+      },
+      {
+        template: 'adminCollectionWidget',
+        data: {
+          collection: 'Round',
           class: 'col-lg-3 col-xs-6'
         }
       }

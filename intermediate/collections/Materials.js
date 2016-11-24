@@ -28,11 +28,14 @@ materials = new SimpleSchema({
   types: {
     type: String,
     label: "format",
-    autoValue: function(){
-      return "Impromptu";
-    },
+    allowedValues: ['Impromptu', 'Debate', 'LearnWord', 'Book'],
     autoform: {
-      type: "hidden"
+      options: [
+        {label: "Impromptu", value: "Impromptu"},
+        {label: "Debate", value: "Debate"},
+        {label: "LearnWord", value: "LearnWord"},
+        {label: "Book", value: "Book"}
+      ]
     }
     // allowedValues: ['LearnWord', 'Debate','Impromptu'],
     // autoform:{

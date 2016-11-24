@@ -8,6 +8,7 @@ Template.Class.onCreated(function() {
       self.subscribe('singleClass', id);
       self.subscribe('classroom');
       self.subscribe('myclassroom');
+      self.subscribe('question');
   });
 });
 

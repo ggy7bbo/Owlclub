@@ -4,16 +4,21 @@
   <h3>{{singleClass.count}}</h3>
   <h3>현재 참여인원 : {{#each singleClass.list}}<span class="listofmember">{{this}}</span>{{/each}}</h3>
   {{#each myclassroom}}
+    {{#with title="Debate Club"}}
+      1111
+    {{/with}}
     <article class="myclassroom_list">
       <div>{{title}}</div>
       <div>{{desc}}</div>
       <p>{{introduction}}</p>
       <button id="start">START</button><button id="stop" style="margin-left: 15px;">STOP</button><br /><br />
       duration : {{duration}}<br /><br />
-      {{#each question}}
+      <!-- {{#each question}}
         <li style="list-style: none;  ">{{@index}} : {{name}}</li>
-      {{/each}}
-      <a href="/club/{{_id}}">view details</a>
+      {{/each}} -->
+      <!-- <a href="/club/{{_id}}">view details</a> -->
+      {{>Question}}
+      {{>Round}}
     </article>
   {{/each}}
 </template>

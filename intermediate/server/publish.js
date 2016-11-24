@@ -19,6 +19,14 @@ Meteor.publish('classroom', function() {
   return Classroom.find({});
 });
 
+Meteor.publish('question', function() {
+  return Question.find({});
+});
+
+Meteor.publish('round', function() {
+  return Round.find({});
+});
+
 Meteor.publish('singleClass', function(id) {
   return Classroom.find({_id: id});
 });

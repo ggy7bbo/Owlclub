@@ -6,6 +6,7 @@ Template.SingleClass.onCreated(function() {
     self.subscribe('material');
     self.subscribe('myclassroom');
     self.subscribe('materialClub', id);
+    self.subscribe('question');
   });
 });
 
@@ -32,6 +33,9 @@ Template.SingleClass.helpers({
     var start = Session.get('startTime');
     var stopWatch = start ? Chronos.currentTime(100) - start : null; // updates every hundred milliseconds
     return Math.round(stopWatch * 0.001);
+  },
+  question: ()=> {
+    var id = FlowRouter.getParam('id');
   }
 });
 
