@@ -1,15 +1,14 @@
 <template name="SingleClass">
-  <h1>{{singleClass.title}}</h1>
-  <h3>{{singleClass.desc}}</h3>
-  <h3>{{singleClass.count}}</h3>
+  <h1 style="text-align:center;">{{singleClass.title}}</h1>
+  <h3>미팅시간 : {{singleClass.desc}}</h3>
   <h3>현재 참여인원 : {{#each singleClass.list}}<span class="listofmember">{{this}}</span>{{/each}}</h3>
   {{#each myclassroom}}
-    {{#with title="Debate Club"}}
+    <!-- {{#with title="Debate Club"}}
       1111
-    {{/with}}
+    {{/with}} -->
     <article class="myclassroom_list">
-      <div>{{title}}</div>
-      <div>{{desc}}</div>
+      <h2 style="text-align:center;">{{title}}</h2>
+      <div><b>{{singleClass.list}}</b> {{desc}}</div>
       <p>{{introduction}}</p>
       <button id="start">START</button><button id="stop" style="margin-left: 15px;">STOP</button><br /><br />
       duration : {{duration}}<br /><br />
@@ -17,8 +16,17 @@
         <li style="list-style: none;  ">{{@index}} : {{name}}</li>
       {{/each}} -->
       <!-- <a href="/club/{{_id}}">view details</a> -->
-      {{>Question}}
-      {{>Round}}
+      <!-- {{types}}<br /><br /> -->
+      {{#if statusIs this.types "Debate"}}
+        {{> Round id=this._id}}
+      {{/if}}
+      {{#if statusIs this.types "Impromptu"}}
+        {{> Question id=this._id}}
+      {{/if}}
+      {{#if statusIs this.types "LearnWord"}}
+        {{> Word id=this._id}}
+      {{/if}}
+      {{question}}
     </article>
   {{/each}}
 </template>

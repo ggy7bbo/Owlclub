@@ -21,16 +21,27 @@ myClassroom = new SimpleSchema({
     label: "Classname",
     optional: true
   },
-  subject: {
+  subject:{
     type: String,
     label: "Subject",
     optional: true
   },
   inMyClass:{
-    type: Boolean,
+    type: String,
     label: "InMyClass",
-    defaultValue: true
+    optional: true,
   },
+  state:{
+    type: Boolean,
+    label: "StateforDebate",
+    autoValue: function(){
+      return Math.random() >= 0.5;
+    }
+  },
+  // "inMyClass.$": {
+  //    type: String,
+  //    optional: true
+  // },
   author: {
     type: String,
     label: "Author",
@@ -53,7 +64,6 @@ myClassroom = new SimpleSchema({
 //Meteor.call('enrollMyClass', this._id, this.title);
 Meteor.methods({ //toggle-menu
     enrollMyClass : function(id, title) {
-      //
       // Classroom.update(id, {
       //   $set: {
       //     count: list.length
@@ -68,7 +78,11 @@ Meteor.methods({ //toggle-menu
       var myState = Myclassroom.find({name: id}).fetch();
       // console.log(_.isEmpty(myState));
       if(_.isEmpty(myState)){
-        Myclassroom.insert({name: id}, {subject: title});
+        Myclassroom.insert({name: id, inMyClass: title});
+        // var names = [{name: id},{subject: title}];
+        // _.each(names, function(doc) {
+        //   Myclassroom.insert(doc);
+        // });
       } else {
         Myclassroom.remove({name: id});
       }

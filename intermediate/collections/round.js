@@ -11,6 +11,10 @@ Round.allow({
 });
 
 roundSchema = new SimpleSchema({
+  patron_id:{
+    type: String,
+    label: "patron_id"
+  },
   title: {
     type: String,
     label: "Title",
@@ -20,10 +24,6 @@ roundSchema = new SimpleSchema({
     type: String,
     label: "Topic"
   },
-  First: {
-    type: String,
-    label: "First"
-  },
   FirstAgree: {
     type: String,
     label: "FirstAgree"
@@ -32,10 +32,6 @@ roundSchema = new SimpleSchema({
     type: String,
     label: "FirstDisagree"
   },
-  Second: {
-    type: String,
-    label: "First"
-  },
   SecondAgree: {
     type: String,
     label: "SecondAgree"
@@ -43,10 +39,6 @@ roundSchema = new SimpleSchema({
   SecondDisagree: {
     type: String,
     label: "SecondDisagree"
-  },
-  Third: {
-    type: String,
-    label: "Third"
   },
   ThirdAgree: {
     type: String,

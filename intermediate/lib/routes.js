@@ -9,9 +9,9 @@ if (Meteor.isClient){ //Client일 때만 로그인, 로그아웃 후 리다이�
 }
 
 FlowRouter.triggers.enter([function(context, redirect){
-  if(!Meteor.userId()){
-    FlowRouter.go('home'); //별명으로 쓰인다
-  }
+  // if(!Meteor.userId()){
+  //   FlowRouter.go('home'); //별명으로 쓰인다
+  // }
 }]);
 
 FlowRouter.route('/', {
@@ -22,6 +22,26 @@ FlowRouter.route('/', {
     }
     // GAnalytics.pageview();
     BlazeLayout.render('HomeLayout');
+  }
+});
+
+FlowRouter.route('/login', {
+  name: 'login',
+  action(){
+    if(Meteor.userId()){
+      FlowRouter.go('class'); //name으로 구분
+    }
+    BlazeLayout.render('MainLayout', {main: 'login'});
+  }
+});
+
+FlowRouter.route('/register', {
+  name: 'register',
+  action(){
+    if(Meteor.userId()){
+      FlowRouter.go('class'); //name으로 구분
+    }
+    BlazeLayout.render('MainLayout', {main: 'register'});
   }
 });
 

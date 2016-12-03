@@ -42,5 +42,28 @@ Template.SingleClub.helpers({
     var aGetListMaterial = getListMaterial[0].count;
 
     return thisSingMaterial;
+  },
+  showMyClassRoom: () => {
+    var myClass = Myclassroom.find({}).fetch();
+    var myClassTag = myClass.inMyClass;
+    var abc = [];
+    // for(var i=0; i<myClass.length; i++){
+    //   alert(myClass[i].inMyClass);
+    // }
+    abc = _.toArray(myClass);
+    return abc;
+    // _.each(myClass, function(){
+    //   push("abc",this.inMyClass);
+    // });
+    // return _.toArray(myClassTag);
+    // return abc;
+    // alert(abc);
+    // _.each(myClassTag, function(doc) {
+    //   Myclassroom.insert(doc);
+    // });
+    // alert(myClass);
+  },
+  showMaterials: () => {
+    return Materials.find({});
   }
 });

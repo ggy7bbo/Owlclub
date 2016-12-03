@@ -1,5 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 
 Meteor.startup(() => {
-  // code to run on server at startup
+  // setTimeout(function(){
+  //   console.log("Server is running at 3000");
+  // }, 3000);
 });

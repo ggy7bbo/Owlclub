@@ -1,14 +1,23 @@
 <template name="Round">
-  {{#each myround}}
-    {{title}}
-    {{First}}
+  {{#each catch id}}
+    <h3>{{title}}</h3>
     <div class="round_top1">First</div>
+    {{#if state}}
     <div class="round_title"><b>(Agree1)</b> : {{FirstAgree}}</div>
-    <!-- <div class="round_title"><b>(Disagree1)</b> : {{FirstDisagree}}</div> -->
+    {{else}}
+    <div class="round_title"><b>(Disagree1)</b> : {{FirstDisagree}}</div>
+    {{/if}}
     <div class="round_top2">Second</div>
+    {{#if state}}
     <div class="round_title"><b>(Agree2)</b> : {{SecondAgree}}</div>
+    {{else}}
+    <div class="round_title"><b>(Disagree2)</b> : {{SecondDisagree}}</div>
+    {{/if}}
     <div class="round_top3">Third</div>
+    {{#if state}}
     <div class="round_title"><b>(Agree3)</b> : {{ThirdAgree}}</div>
+    {{else}}
+    <div class="round_title"><b>(Disagree3)</b> : {{ThirdDisagree}}</div>
+    {{/if}}
   {{/each}}
-  <!-- {{myquestion}} -->
 </template>

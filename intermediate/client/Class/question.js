@@ -11,7 +11,7 @@ Template.Question.onCreated(function() {
 });
 
 Template.Question.helpers({
-  myquestion: ()=> {
+  myquestion: function(pid) {
     var id = FlowRouter.getParam('id');
     var limit_Val = Classroom.find({_id: id}).fetch();
     var limit = limit_Val[0].count;
@@ -25,7 +25,7 @@ Template.Question.helpers({
     // var r = Math.floor(Math.random() * n);
     // var randomElement = db.Question.find({}).limit(limitalg).skip(r);
 
-    return Question.find({},{limit : limitalg});
+    return Question.find({patron_id: pid},{limit : limitalg});
     // return element;
     // return randomElement;
   }

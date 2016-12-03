@@ -2,6 +2,10 @@ Meteor.publish('recipes', function() {
   return Recipes.find({author: this.userId});
 });
 
+Meteor.publish('users', function() {
+  return Users.find({});
+});
+
 Meteor.publish('material', function() {
   return Materials.find();
 });
@@ -25,6 +29,10 @@ Meteor.publish('question', function() {
 
 Meteor.publish('round', function() {
   return Round.find({});
+});
+
+Meteor.publish('word', function() {
+  return Word.find({});
 });
 
 Meteor.publish('singleClass', function(id) {

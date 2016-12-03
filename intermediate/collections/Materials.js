@@ -26,25 +26,20 @@ materials = new SimpleSchema({
     label: "Description"
   },
   types: {
-    type: String,
-    label: "format",
+    type: [String],
+    optional: true,
     allowedValues: ['Impromptu', 'Debate', 'LearnWord', 'Book'],
     autoform: {
-      options: [
-        {label: "Impromptu", value: "Impromptu"},
-        {label: "Debate", value: "Debate"},
-        {label: "LearnWord", value: "LearnWord"},
-        {label: "Book", value: "Book"}
-      ]
+      type: "select-checkbox",
+      options: function () {
+        return [
+          {label: "Impromptu", value: "Impromptu"},
+          {label: "Debate", value: "Debate"},
+          {label: "LearnWord", value: "LearnWord"},
+          {label: "Book", value: "Book"}
+        ];
+      }
     }
-    // allowedValues: ['LearnWord', 'Debate','Impromptu'],
-    // autoform:{
-    //   options: [
-    //     {label: "LearnWord", value: "LearnWord"},
-    //     {label: "Debate", value: "Debate"},
-    //     {label: "Impromptu", value: "Impromptu"},
-    //   ]
-    // }
   },
   category: {
     type: String,
@@ -86,6 +81,7 @@ materials = new SimpleSchema({
     }
   },
   question: {
+    optional: true,
     type: [qnalist]
   },
   counter: {
@@ -94,6 +90,11 @@ materials = new SimpleSchema({
     autoValue: function() {
       return 0;
     },
+    optional: true
+  },
+  order: {
+    type: Number,
+    label: "Order",
     optional: true
   },
   author: {

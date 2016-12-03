@@ -1,6 +1,10 @@
 <template name="Header">
-  <header>   
-    <h1>Owl Club</h1>
-    {{> loginButtons}}
+  <header>
+    <h1><a href="/" style="text-decoration: none; color: #fff;">Owl Club</a></h1>
+    {{#if currentUser}}
+    <button class="logout" style="background: #fff; color: #373143; float: right;">logout</button>
+    {{else}}
+    <button class="login" style="background: #fff; color: #373143; float: right;">login</button>
+    {{/if}}
   </header>
 </template>

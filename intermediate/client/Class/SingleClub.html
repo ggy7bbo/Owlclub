@@ -1,11 +1,14 @@
 <template name="SingleClub">
   <!-- {{> foo}} -->
-  <h2 style="text-align:center;">Impromptu Speech (Q and A)</h2><br/>
-  <p>{{singleMaterial.introduction}}</p><br/>
-  <br /><br /><br />
-  {{#each singleMaterial.question}}
-    <li>{{name}}</li>
+  <!-- <h2 style="text-align:center;">Impromptu Speech (Q and A)</h2><br/> -->
+  <!-- {{#each showMyClassRoom}}
+    {{this.inMyClass}}
+  {{/each}} -->
+  {{#each showMaterials}}
+  <article class="myclassroom_list">
+    <h2 style="text-align:center;">{{title}}</h2><br/>
+    {{desc}}<br /><br />
+    {{introduction}}
+  </article>
   {{/each}}
-  {{question}}
-  {{singleLIst}}
 </template>

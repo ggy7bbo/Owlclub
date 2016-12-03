@@ -1,0 +1,23 @@
+<template name="Class">
+  <article class="class_list">
+    {{#each classroom}}
+    {{types}}
+      <div class="classwrap">
+        <div class="class_title"> {{title}} </div>
+        <div class="class_desc">{{desc}}</div>
+        <div class="class_count">현재참여:{{count}} / 20</div><br />
+        <a href="/class/{{_id}}">View Details</a><br />
+        <!-- {{#if inClass}}
+        <button class="btn-deny toggle-menu">참여취소</button>
+        {{else}}
+          <button class="btn-primary toggle-menu">참여하기</button>
+        {{/if}} -->
+        <button class="btn-primary toggle-menu">참여하기</button><br />
+        <!-- {{includeClass}} -->
+        {{#each includeClass}}
+          {{this.list}}
+        {{/each}}
+      </div>
+    {{/each}}
+  </article>
+</template>

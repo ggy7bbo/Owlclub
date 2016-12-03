@@ -11,6 +11,10 @@ Question.allow({
 });
 
 question = new SimpleSchema({
+  patron_id:{
+    type: String,
+    label: "patron_id"
+  },  
   title: {
     type: String,
     label: "Title",
@@ -19,6 +23,11 @@ question = new SimpleSchema({
   question: {
     type: String,
     label: "Question"
+  },
+  Debate: {
+    type: Boolean,
+    label: "Types",
+    defaultValue: true
   }
 });
 

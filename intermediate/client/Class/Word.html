@@ -1,0 +1,13 @@
+<template name="Word">
+  <!-- {{#each}}
+    <li style="list-style:none;">{{@index}} : {{question}}</li>
+  {{/each}} -->
+  <!-- {{myquestion}} -->
+  {{#each myWord id}}
+    <h3>{{title}}</h3>
+    {{#each explain}}
+      <h4>DEFINITION) {{definition}}</h4>
+      <li>{{examples}}</li><br /><br />
+    {{/each}}
+  {{/each}}
+</template>

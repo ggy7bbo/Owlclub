@@ -1,0 +1,218 @@
+<!-- <template name="register">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <form class="register-form">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3>Registration</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group col-lg-12">
+                            <label>Email</label>
+                            <input type="email"  class="form-control" id="email" value="">
+                        </div>
+
+                        <div class="form-group col-lg-6">
+                            <label>Name</label>
+                            <input type="text" name="" class="form-control" id="firstname" value="">
+                        </div>
+
+                        <div class="form-group col-lg-6">
+                            <label>Last Name</label>
+                            <input type="text" name="" class="form-control" id="lastname" value="">
+                        </div>
+
+                        <div class="form-group col-lg-12">
+                            <label>Password</label>
+                            <input type="password" name="" class="form-control" id="password" value="">
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</template> -->
+
+<!-- <template name="login">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <form class="login-form">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3>Login</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group col-lg-12">
+                            <label>Email</label>
+                            <input type="email"  class="form-control" id="email" value="">
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <label>Password</label>
+                            <input type="password" name="" class="form-control" id="password" value="">
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                        <button  class="btn btn-primary btn-facebook">Facebook Login</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</template> -->
+
+<!-- <template name="LoginModal">
+  <header class="header">
+    <div class="login-modal">
+      <i class="fa fa-close close-login"></i>
+      {{> atForm}}
+    </div>
+  </header>
+  {{> LoginModal}}
+</template> -->
+
+<!-- <template name="login">
+    <div class="ui vertical center aligned segment">
+        <div class="ui stackable container grid">
+            <div class="row">
+                <div class="sixteen wide column">
+                <br>
+                <br>
+                <br>
+                    <h1 class="ui header">Login</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="four wide column"></div>
+                <div class="eight wide column middle aligned">
+                    <form class="ui form" id="login-form" action="action">
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <input class="" type="email" placeholder="Email" id="login-email" />
+                                <i class="send icon"></i>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <input class="" type="password" placeholder="Password" id="login-password" />
+                                <i class="lock icon"></i>
+                            </div>
+                        </div>
+                        <button class="ui blue huge button" id="login-button" type="submit">Login</button>
+                    </form>
+                </div>
+                <div class="four wide column"></div>
+            </div>
+            <div class="row">
+                <div class="sixteen wide column">
+                    <div class="ui basic segment center aligned top">
+                        <ul class="extra-links">
+                            <li><a href="{{pathFor 'register'}}">Click here to register</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template> -->
+<template name="login">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <form class="register-form">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3>Login</h3>
+                    </div>
+                    <div class="form-group col-lg-12" style="padding-top: 30px;">
+                        <label>Email</label>
+                        <input class="" type="email" placeholder="Email" id="login-email" />
+                    </div>
+
+                    <div class="form-group col-lg-12">
+                        <label>Password</label>
+                        <input class="" type="password" placeholder="Password" id="login-password" />
+                    </div>
+                    <div class="panel-footer">
+                        <button class="ui blue huge button" id="login-button" type="submit">Login</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <ul class="extra-links">
+                    <li style="list-style:none;"><a href="/register">Click here to register</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</template>
+<!-- <template name="login">
+    <div class="ui vertical center aligned segment">
+        <div class="ui stackable container grid">
+            <div class="row">
+                <div class="sixteen wide column">
+                <br>
+                <br>
+                <br>
+                    <h1 class="ui header">Login</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="four wide column"></div>
+                <div class="eight wide column middle aligned">
+                    <form class="ui form" id="login-form" action="action">
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <input class="" type="email" placeholder="Email" id="login-email" />
+                                <i class="send icon"></i>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <input class="" type="password" placeholder="Password" id="login-password" />
+                                <i class="lock icon"></i>
+                            </div>
+                        </div>
+                        <button class="ui blue huge button" id="login-button" type="submit">Login</button>
+                    </form>
+                </div>
+                <div class="four wide column"></div>
+            </div>
+            <div class="row">
+                <div class="sixteen wide column">
+                    <div class="ui basic segment center aligned top">
+                        <ul class="extra-links">
+                            <li><a href="/register">Click here to register</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template> -->
+
+<!-- <template name="exampleModal">
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Modal example</h4>
+                </div>
+
+                <div class="modal-body">
+                    <p>A modal example.</p>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</template> -->

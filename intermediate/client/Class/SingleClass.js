@@ -1,5 +1,6 @@
 Template.SingleClass.onCreated(function() {
   var self = this;
+  var check_Id = this._id;
   self.autorun(function() {
     var id = FlowRouter.getParam('id');
     self.subscribe('singleClass', id);
@@ -7,6 +8,8 @@ Template.SingleClass.onCreated(function() {
     self.subscribe('myclassroom');
     self.subscribe('materialClub', id);
     self.subscribe('question');
+    self.subscribe('users');
+    // Meteor.subscribe("_roles");
   });
 });
 
@@ -14,6 +17,11 @@ Template.SingleClass.helpers({
   singleClass: ()=> {
     var id = FlowRouter.getParam('id');
     // console.log(id);
+    // var c_list = Classroom.findOne({_id: id}).fetch();
+    // var c_listid = _.each(c_list, this.list);
+
+    // var c_name = _.each(c_listid, users.find({}).fetch());
+    // return c_list['list'];
     return Classroom.findOne({_id: id});
   },
   myclassroom: ()=> {
@@ -27,15 +35,19 @@ Template.SingleClass.helpers({
 
     var limitalg = 10 / limit;
 
-    return Materials.find({category: "Monday"}, {limit : limitalg});
+    return Materials.find({}, {limit : limitalg});
   },
   duration: ()=> {
     var start = Session.get('startTime');
     var stopWatch = start ? Chronos.currentTime(100) - start : null; // updates every hundred milliseconds
-    return Math.round(stopWatch * 0.001);
+    return 120 - Math.round(stopWatch * 0.001);
   },
   question: ()=> {
-    var id = FlowRouter.getParam('id');
+    // return Roles.find({});
+  },
+  statusIs: function(a1, a2) {
+    // alert(a1==a2)
+    return a1==a2;
   }
 });
 

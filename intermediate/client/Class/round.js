@@ -11,23 +11,17 @@ Template.Round.onCreated(function() {
 });
 
 Template.Round.helpers({
-  myround: ()=> {
-    var id = FlowRouter.getParam('id');
-    var limit_Val = Classroom.find({_id: id}).fetch();
-    var limit = limit_Val[0].count;
-    var limitalg = 10 / limit;
+  catch: function(id) {
+    return Round.find({patron_id: id}).fetch();
+  },
+  state: function(){
+    var state = Classroom.find({}).fetch();
+    var stateValue = state[0].title;
 
-    // var array = Question.find({}).fetch();
-    // var randomIndex = Math.floor( Math.random() * array.length );
-    // var element = array[randomIndex];
-    //
-    // var n = db.Question.count(query);
-    // var r = Math.floor(Math.random() * n);
-    // var randomElement = db.Question.find({}).limit(limitalg).skip(r);
+    var stateCheck = Myclassroom.find({inMyClass: stateValue}).fetch();
+    var stateCheckValue = stateCheck[0].state;
 
-    return Round.find({},{limit : limitalg});
-    // return element;
-    // return randomElement;
+    return stateCheckValue;
   }
 });
 

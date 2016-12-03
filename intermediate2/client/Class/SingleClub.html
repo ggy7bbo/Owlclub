@@ -1,0 +1,11 @@
+<template name="SingleClub">
+  <!-- {{> foo}} -->
+  <h2 style="text-align:center;">Impromptu Speech (Q and A)</h2><br/>
+  <p>{{singleMaterial.introduction}}</p><br/>
+  <br /><br /><br />
+  {{#each singleMaterial.question}}
+    <li>{{name}}</li>
+  {{/each}}
+  {{question}}
+  {{singleLIst}}
+</template>

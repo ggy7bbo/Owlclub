@@ -54,6 +54,21 @@ classRoom = new SimpleSchema({
       type: "hidden"
     }
   },
+  formatlist: {
+    type: [String],
+    optional: true,
+    autoform: {
+      type: "select-checkbox",
+      options: function () {
+        return [
+          {label: "Impromptu", value: "Impromptu"},
+          {label: "Debate", value: "Debate"},
+          {label: "LearnWord", value: "LearnWord"},
+          {label: "Book", value: "Book"}
+        ];
+      }
+    }
+  },
   author: {
     type: String,
     label: "Author",
