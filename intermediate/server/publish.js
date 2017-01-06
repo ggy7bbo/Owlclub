@@ -10,11 +10,6 @@ Meteor.publish('material', function() {
   return Materials.find();
 });
 
-Meteor.publish('singlematerial', function(id) {
-  check(id, String);
-  return Materials.find({_id: id});
-});
-
 Meteor.publish('myclassroom', function() {
   return Myclassroom.find({});
 });
@@ -33,6 +28,14 @@ Meteor.publish('round', function() {
 
 Meteor.publish('word', function() {
   return Word.find({});
+});
+
+Meteor.publish('myquestion', function(){
+  return Myquestion.find({});
+});
+
+Meteor.publish('selfquestion', function(id){
+  return Myquestion.find({createBy: id});
 });
 
 Meteor.publish('singleClass', function(id) {

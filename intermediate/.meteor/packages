@@ -15,7 +15,7 @@ tracker@1.1.1                 # Meteor's client-side reactive programming librar
 standard-minifier-css@1.3.2   # CSS minifier run for production mode
 standard-minifier-js@1.2.1    # JS minifier run for production mode
 es5-shim@4.6.15                # ECMAScript 5 compatibility for older browsers.
-ecmascript@0.5.9              # Enable ECMAScript2015+ syntax in app code
+ecmascript@0.6.1              # Enable ECMAScript2015+ syntax in app code
 shell-server@0.2.1            # Server-side component of the `meteor shell` command
 
 kadira:flow-router
@@ -29,15 +29,15 @@ dburles:collection-helpers
 raix:handlebar-helpers
 aldeed:collection2              # Schema
 aldeed:autoform                 # Form
-accounts-ui
-accounts-base
-accounts-password
+accounts-ui@1.1.9
+accounts-base@1.2.14
+accounts-password@1.3.3
 matb33:bootstrap-glyphicons
 msavin:jetsetter
 zimme:active-route
 gwendall:auth-client-callbacks
 meteortoys:allthings
-datariot:ganalytics
+# datariot:ganalytics
 
 check@1.2.4
 session@1.1.7
@@ -50,5 +50,12 @@ twbs:bootstrap
 superandrew:viewport
 skehoe1989:autoform-tinymce
 remcoder:chronos
-random
+random@1.0.10
 peppelg:bootstrap-3-modal
+momentjs:moment
+percolate:synced-cron
+useraccounts:bootstrap
+# useraccounts:unstyled
+# useraccounts:ionic
+# accounts-facebook
+email

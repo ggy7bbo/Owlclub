@@ -1,23 +1,33 @@
 <template name="Round">
   {{#each catch id}}
     <h3>{{title}}</h3>
-    <div class="round_top1">First</div>
+    <!-- <div class="round_top1">First</div> -->
+    <div class="round_top1" data-toggle="collapse" data-target="#{{this._id}}1">First</div>
+    <div id={{this._id}}1 class="collapse">
     {{#if state}}
-    <div class="round_title"><b>(Agree1)</b> : {{FirstAgree}}</div>
+    <b>(Agree1)</b> : {{FirstAgree}}
     {{else}}
-    <div class="round_title"><b>(Disagree1)</b> : {{FirstDisagree}}</div>
+    <b>(Disagree1)</b> : {{FirstDisagree}}
     {{/if}}
-    <div class="round_top2">Second</div>
+    </div>
+    <!-- <div class="round_top2">Second</div> -->
+    <div class="round_top2" data-toggle="collapse" data-target="#{{this._id}}2">Second</div>
+    <div id={{this._id}}2 class="collapse">
     {{#if state}}
-    <div class="round_title"><b>(Agree2)</b> : {{SecondAgree}}</div>
+    <b>(Agree2)</b> : {{SecondAgree}}
     {{else}}
-    <div class="round_title"><b>(Disagree2)</b> : {{SecondDisagree}}</div>
+    <b>(Disagree2)</b> : {{SecondDisagree}}
     {{/if}}
-    <div class="round_top3">Third</div>
+    </div>
+    <!-- <div class="round_top3">Third</div> -->
+    <div class="round_top3" data-toggle="collapse" data-target="#{{this._id}}3">Third</div>
+    <div id={{this._id}}3 class="collapse">
     {{#if state}}
-    <div class="round_title"><b>(Agree3)</b> : {{ThirdAgree}}</div>
+    <!-- <div class="round_title"><b>(Agree3)</b> : {{ThirdAgree}}</div> -->
+      <b>(Agree3)</b> : {{ThirdAgree}}
     {{else}}
-    <div class="round_title"><b>(Disagree3)</b> : {{ThirdDisagree}}</div>
+      <b>(Disagree3)</b> : {{ThirdDisagree}}
     {{/if}}
+    </div>
   {{/each}}
 </template>

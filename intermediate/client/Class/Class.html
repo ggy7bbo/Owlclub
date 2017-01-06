@@ -4,19 +4,19 @@
     {{types}}
       <div class="classwrap">
         <div class="class_title"> {{title}} </div>
-        <div class="class_desc">{{desc}}</div>
-        <div class="class_count">현재참여:{{count}} / 20</div><br />
-        <a href="/class/{{_id}}">View Details</a><br />
+        <div class="class_format">({{formatlist}})</div>
+        <div class="class_desc">시간: {{desc}}</div>
+        <div class="class_location">장소: {{location}}</div>
+        <div class="class_count">참여 인원: {{count}} 명</div><br />
+        <!-- <div class="">{{checkTime this.controls}}</div> -->
+        <div class="class_exp" style="display: inline-block;">(최소 4명, 최대 8명으로 운영. 4명이 안될 경우 자동으로 모임진행 안됨)</div><br /><br />
+        {{#if checkTime this.count}}<a href="/class/{{_id}}">미팅내용</a><br />{{else}}<a href="#" onclick="alert('참여인원 4명 이상 이어야 미팅이 생성됩니다')">미팅내용</a><br />{{/if}}
         <!-- {{#if inClass}}
         <button class="btn-deny toggle-menu">참여취소</button>
         {{else}}
           <button class="btn-primary toggle-menu">참여하기</button>
         {{/if}} -->
-        <button class="btn-primary toggle-menu">참여하기</button><br />
-        <!-- {{includeClass}} -->
-        {{#each includeClass}}
-          {{this.list}}
-        {{/each}}
+        {{#if checkMyClass list}}<button class="btn-deny toggle-menu">나가기</button><br />{{else}}<button class="btn-primary toggle-menu">참여하기</button><br />{{/if}}
       </div>
     {{/each}}
   </article>

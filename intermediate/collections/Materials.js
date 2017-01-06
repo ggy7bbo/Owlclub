@@ -44,14 +44,12 @@ materials = new SimpleSchema({
   category: {
     type: String,
     label: "Category",
-    allowedValues: ['Monday', 'Wednesday', 'Friday', 'Sunday'],
+    allowedValues: ['Regular', 'Debate'],
     optional: true,
     autoform:{
       options: [
-        {label: "monday", value: "Monday"},
-        {label: "wednesday", value: "Wednesday"},
-        {label: "friday", value: "Friday"},
-        {label: "sunday", value: "Sunday"}
+        {label: "Regular", value: "Regular"},
+        {label: "Debate", value: "Debate"}
       ]
     }
     // autoform: {
@@ -92,6 +90,11 @@ materials = new SimpleSchema({
     },
     optional: true
   },
+  leader: {
+    type: String,
+    label: "Leader",
+    optional: true
+  },
   order: {
     type: Number,
     label: "Order",
@@ -120,8 +123,18 @@ materials = new SimpleSchema({
 });
 
 Meteor.methods({ //toggle-menu
-    updateMaterials : function(id, count) {
-      // Materials.update({category: "Monday"}, $set: {count: 0}, {upsert: true});
+    // updateMaterials : function(id, count) {
+    //   // Materials.update({category: "Monday"}, $set: {count: 0}, {upsert: true});
+    // },
+    electLeader : function(id, leader){
+      console.log(1111);
+      console.log(id);
+      console.log(leader);
+      Materials.update({_id: id}, {
+        $set: {
+          leader: "1111"
+        }
+      }, { upsert: true });
     }
 });
 

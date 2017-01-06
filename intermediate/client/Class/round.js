@@ -15,13 +15,12 @@ Template.Round.helpers({
     return Round.find({patron_id: id}).fetch();
   },
   state: function(){
-    var state = Classroom.find({}).fetch();
-    var stateValue = state[0].title;
-
-    var stateCheck = Myclassroom.find({inMyClass: stateValue}).fetch();
-    var stateCheckValue = stateCheck[0].state;
-
-    return stateCheckValue;
+    if(Math.random() > 0.5){
+      return true;
+    }
+    else{
+      return false;
+    }
   }
 });
 

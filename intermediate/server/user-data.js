@@ -30,8 +30,12 @@ Accounts.onCreateUser(function(options, user) {
   // user.profile.profPicture = Meteor.absoluteUrl() + "img/default/user.jpg";
   // Organization
   //Basic Role Set Up
-  user.roles = ["guest"];
-  Roles.addUsersToRoles(user._id, ['guest','user']);
+  Roles.addUsersToRoles(user._id, ['guest','user','Admin']);
+
+  // we wait for Meteor to create the user before sending an email
+  // Meteor.setTimeout(function() {
+  //   Accounts.sendVerificationEmail(user._id);
+  // }, 2 * 1000);
 
   // Returns the user object
   return user;

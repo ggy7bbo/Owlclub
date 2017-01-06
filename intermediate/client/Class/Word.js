@@ -17,15 +17,16 @@ Template.Word.helpers({
     var limit = limit_Val[0].count;
     var limitalg = 6 / limit;
 
-    // var array = Question.find({}).fetch();
-    // var randomIndex = Math.floor( Math.random() * array.length );
-    // var element = array[randomIndex];
-    //
-    // var n = db.Question.count(query);
-    // var r = Math.floor(Math.random() * n);
-    // var randomElement = db.Question.find({}).limit(limitalg).skip(r);
+    var list = Word.find({patron_id: pid}).fetch();
+    var number = [];
+    for (var i = 0; i < list.length ; i++){
+      var select = Math.floor(Math.random() * list.length);
+
+      number[i] = list.splice(select, 1)[0];
+    }
 
     return Word.find({patron_id: pid},{limit : limitalg});
+    // return number;
     // return element;
     // return randomElement;
   }

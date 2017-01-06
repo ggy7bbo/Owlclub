@@ -10,13 +10,6 @@ Classroom.allow({
   }
 });
 
-addUsers = new SimpleSchema({
-  name: {
-    type: String,
-    optional: true,
-  }
-});
-
 classRoom = new SimpleSchema({
   title: {
     type: String,
@@ -40,6 +33,11 @@ classRoom = new SimpleSchema({
     label: "userlist",
     optional: true
   },
+  names: {
+    type: [String],
+    label: "userName",
+    optional: true
+  },
   count: {
     type: Number,
     label: "person",
@@ -54,6 +52,15 @@ classRoom = new SimpleSchema({
       type: "hidden"
     }
   },
+  location: {
+    type: String,
+    label: "location"
+  },
+  leader:{
+    type: [String],
+    label: "leader",
+    optional: true
+  },
   formatlist: {
     type: [String],
     optional: true,
@@ -61,10 +68,8 @@ classRoom = new SimpleSchema({
       type: "select-checkbox",
       options: function () {
         return [
-          {label: "Impromptu", value: "Impromptu"},
-          {label: "Debate", value: "Debate"},
-          {label: "LearnWord", value: "LearnWord"},
-          {label: "Book", value: "Book"}
+          {label: "Regular", value: "Regular"},
+          {label: "Debate", value: "Debate"}
         ];
       }
     }
@@ -79,6 +84,16 @@ classRoom = new SimpleSchema({
       type: "hidden"
     }
   },
+  controls: {
+    type: Date,
+    label: "Time",
+    optional: true
+  },
+  history: {
+    type: [String],
+    label: "history",
+    optional: true
+  },
   createdAt: {
     type: Date,
     label: "Created At",
@@ -92,38 +107,16 @@ classRoom = new SimpleSchema({
 });
 
 Meteor.methods({ //toggle-menu
-    // enrollClass : function(id, currentState, count){
-    //   if(currentState){
-    //     Classroom.update(id, {
-    //       $set: {
-    //         enroll: !currentState,
-    //         count: count - 1
-    //       },
-    //     });
-    //   }
-    //   else{
-    //     Classroom.update(id, {
-    //       $set: {
-    //         enroll: !currentState,
-    //         count: count + 1
-    //       },
-    //     });
-    //   }
-    // },
     enroll: function(id, count, list){
-      // Classroom.update(id, {
-      //   $set: {
-      //     list: title
-      //   }
-      // });
-      // alert(list.length);
-
       var listCheck = _.contains(list, this.userId);
+      var user = Meteor.users.findOne({_id: this.userId});
+      var userName = user.username;
 
       if(listCheck){
         Classroom.update(id, {
           $pull: {
-            list: this.userId
+            list: this.userId,
+            names: userName
           }
         });
         Classroom.update(id, {
@@ -134,7 +127,8 @@ Meteor.methods({ //toggle-menu
       } else {
         Classroom.update({_id:id}, {
           $addToSet: {
-            list: this.userId
+            list: this.userId,
+            names: userName
           }
         });
         Classroom.update(id, {
@@ -143,38 +137,7 @@ Meteor.methods({ //toggle-menu
           }
         });
       }
-      //
-      // Classroom.update(id, {
-      //   $set: {
-      //     count: list.length
-      //   }
-      // });
-    },
-    // toggleClassItem: function(id, currentState, list) {
-    //   // var list = _.contains(list, this.userId); //Classroom에 내가 등록했는지 검사 :: true, false]
-    //   // //
-    //   // // if(true){
-    //   // //   alert(list);
-    //   // //     // Myclassroom.update({author: this.userId},{
-    //   // //     //   $set: {
-    //   // //     //     inMyClass: true
-    //   // //     //   }
-    //   // //     // });
-    //   // // }else{
-    //   // //   alert(2222);
-    //   // //   // Myclassroom.update({author: this.userId},{
-    //   // //   //   $set: {
-    //   // //   //     inMyClass: false
-    //   // //   //   }
-    //   // //   // });
-    //   // // }
-    //   //
-    //   // Classroom.update(id, {
-    //   //   $set: {
-    //   //     inClass: !currentState
-    //   //   }
-    //   // });
-    // }
+    }
 });
 
 Classroom.attachSchema( classRoom );

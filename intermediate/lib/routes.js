@@ -9,9 +9,15 @@ if (Meteor.isClient){ //Client일 때만 로그인, 로그아웃 후 리다이�
 }
 
 FlowRouter.triggers.enter([function(context, redirect){
-  // if(!Meteor.userId()){
-  //   FlowRouter.go('home'); //별명으로 쓰인다
-  // }
+  if(!Meteor.userId()){
+    // FlowRouter.go('home'); //별명으로 쓰인다
+    // console.log(context.path);
+    if(context.path == '/login'){
+      FlowRouter.go('login');
+    } else {
+      FlowRouter.go('home');
+    }
+  }
 }]);
 
 FlowRouter.route('/', {

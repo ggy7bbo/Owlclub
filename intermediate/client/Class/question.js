@@ -17,6 +17,17 @@ Template.Question.helpers({
     var limit = limit_Val[0].count;
     var limitalg = 10 / limit;
 
+    var list = Question.find({patron_id: pid}).fetch();
+    var number = [];
+    for (var i = 0; i < list.length ; i++){
+      var select = Math.floor(Math.random() * list.length);
+
+      number[i] = list.splice(select, 1)[0];
+    }
+
+    return Question.find({patron_id: pid},{limit : limitalg});
+    // return number;
+
     // var array = Question.find({}).fetch();
     // var randomIndex = Math.floor( Math.random() * array.length );
     // var element = array[randomIndex];
@@ -25,7 +36,7 @@ Template.Question.helpers({
     // var r = Math.floor(Math.random() * n);
     // var randomElement = db.Question.find({}).limit(limitalg).skip(r);
 
-    return Question.find({patron_id: pid},{limit : limitalg});
+    // return Question.find({patron_id: pid},{limit : limitalg});
     // return element;
     // return randomElement;
   }

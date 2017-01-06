@@ -38,10 +38,6 @@ myClassroom = new SimpleSchema({
       return Math.random() >= 0.5;
     }
   },
-  // "inMyClass.$": {
-  //    type: String,
-  //    optional: true
-  // },
   author: {
     type: String,
     label: "Author",

@@ -1,6 +1,6 @@
 AdminConfig = {
-  name: 'The OwlClub',
-  adminEmails: ['ggybbo@naver.com'],
+  name: 'The DjSocialClub',
+  adminEmails: ['ggybbo@naver.com','bkhscwe@gmail.com'],
   collections: {
     Classroom: {
       tableColumns: [
@@ -31,7 +31,8 @@ AdminConfig = {
        { label: 'patron_id', name: 'patron_id'}
       ]
     },
-    Word:{}
+    Word:{},
+    Cron:{}
   },
   dashboard: {
     homeUrl: '/dashboard',

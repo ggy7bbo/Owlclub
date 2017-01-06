@@ -64,8 +64,8 @@ social = {
     youtube: #bb0000
 }
 
-$side-nav = 100px
-$side-nav-large = 200px
+$side-nav = 0px
+$side-nav-large = 0px
 
 html
     box-sizing: border-box
@@ -74,6 +74,7 @@ html
     box-sizing: inherit
 
 body
+    width 100%
     background light-grey
     padding: 70px 0 150px
 
@@ -121,9 +122,24 @@ p
         lost-center 90%
         padding-left $side-nav
     +above($large)
-        lost-center 80%
+        lost-center 90%
         margin-top 40px
         padding-left $side-nav-large
+
+.at-form
+    width 100%
+    padding 0px
+    fieldset
+        padding 1.5em 1em 1.5em
+    +above($med)
+        width 50%
+        fieldset
+        padding 10px
+            padding 1.5em 2em 0.5em
+
+#at-btn
+    &:hover
+        color #FFF
 
 .new-recipe
     margin-bottom 20px
@@ -412,14 +428,20 @@ input, select, textarea
     .class_title
         text-align center
         font-size 15px
-        text-decoration underline
         +above($med)
             font-size 20px
     .class_desc
-        padding-top 10px
+        padding-top 15px
+        font-size 0.8em
+        +above($med)
+            font-size 15px
     .class_count
     a
-        text-align center
+        text-align left
+        font-size 0.8em
+        +above($med)
+            text-align center
+            font-size 15px
     button
         display inline-block!important
         text-align center
@@ -465,3 +487,23 @@ input, select, textarea
 
 .round_title.open
     display block
+
+.class_desc
+    text-align left
+    +above($med)
+        text-align center
+        text-indent 0em
+.class_location
+    text-align left
+    font-size 0.8em
+    +above($med)
+        text-align center
+        font-size 15px
+.class_count
+    text-align left
+    +above($med)
+        text-align center
+.class_exp
+    font-size 0.7em
+    +above($med)
+        font-size 15px
